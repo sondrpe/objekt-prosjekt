@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="exampleproject.TableTennisController">
+    <children>
+        <GridPane prefHeight="498.0" prefWidth="650.0">
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="317.3999755859375" minHeight="10.0" prefHeight="310.400048828125" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="192.60001220703126" minHeight="10.0" prefHeight="86.80003662109374" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="192.60001220703126" minHeight="10.0" prefHeight="100.39996337890625" vgrow="SOMETIMES" />
+          </rowConstraints>
+           <children>
+              <Pane fx:id="topLeft" prefHeight="328.0" prefWidth="301.0">
+                 <children>
+                    <Pane layoutX="11.0" layoutY="18.0" prefHeight="235.0" prefWidth="279.0">
+                       <children>
+                          <TextField fx:id="skrivInnNavn" layoutX="11.0" layoutY="43.0" onKeyPressed="#nyttNavn" prefHeight="25.0" prefWidth="167.0" promptText="Skrv ditt navn her" />
+                          <Text layoutX="11.0" layoutY="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oppgi navn for å booke tid:" wrappingWidth="174.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Text>
+                          <Button fx:id="bekreftNavnKnapp" layoutX="185.0" layoutY="35.0" mnemonicParsing="false" onAction="#confirmName" prefHeight="42.0" prefWidth="84.0" text="OK">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font></Button>
+                          <ImageView fitHeight="217.0" fitWidth="307.0" layoutX="12.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+                             <image>
+                                <Image url="@rackets.jpg" />
+                             </image>
+                          </ImageView>
+                        <Text layoutX="12.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Skriv inn nytt navn for å begynne på nytt" wrappingWidth="281.189178466797">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                       </children>
+                    </Pane>
+                 </children>
+              </Pane>
+              <Pane fx:id="topRight" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.columnIndex="1">
+                 <children>
+                    <ListView fx:id="listViewTider" layoutX="8.0" layoutY="29.0" onMouseClicked="#displaySelectedList" prefHeight="276.0" prefWidth="307.0" />
+                    <Text fx:id="velgTidTekst" layoutX="23.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vennligst velg ønsket tid for booking: " wrappingWidth="254.936767578125">
+                       <font>
+                          <Font name="System Bold Italic" size="14.0" />
+                       </font></Text>
+                 </children>
+              </Pane>
+              <Pane fx:id="bottomLeft" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.rowIndex="1">
+               <children>
+                  <Text fx:id="tekstFelt" layoutX="14.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="197.4000244140625" />
+                  <ListView fx:id="listOfBooked" layoutX="214.0" layoutY="8.0" onMouseClicked="#displaySelectedBooked" prefHeight="75.0" prefWidth="98.0" />
+               </children></Pane>
+              <Pane fx:id="bottomRight" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                 <children>
+                    <Button fx:id="bekreftTidKnapp" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#confirmTime" prefHeight="75.0" prefWidth="131.0" text="Bekreft tid">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font></Button>
+                  <Button fx:id="slettTidKnapp" layoutX="188.0" layoutY="7.0" mnemonicParsing="false" onAction="#deleteTime" prefHeight="75.0" prefWidth="124.0" text="Fjern booking">
+                     <font>
+                        <Font name="System Italic" size="16.0" />
+                     </font>
+                  </Button>
+                 </children></Pane>
+            <Pane fx:id="heltNederstVenstre" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.rowIndex="2" />
+            <Pane fx:id="heltNederstHøyre" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <Text fx:id="showBookedTime" layoutX="188.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="124.0" />
+                  <Text fx:id="visTid" layoutX="14.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="124.0" />
+                  <Text fx:id="showCost" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="225.3367576599121">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="payButton" layoutX="224.0" layoutY="46.0" mnemonicParsing="false" onAction="#vippsToPay" prefHeight="36.0" prefWidth="84.0" text="Betal nå">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Button>
+               </children>
+            </Pane>
+           </children>
+        </GridPane>
+     </children>
+</AnchorPane>
